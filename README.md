@@ -215,9 +215,18 @@ contracts/
     └── src/main.nr
 ```
 
-### Private Counter (primary)
+### Private Counter workspace ([#3](https://github.com/holoyZ/aztec/issues/3))
 
-Used by `npm run deploy` and the UI. Per-owner hidden counts via `EasyPrivateUint`:
+Production-ready Noir workspace at `contracts/counter/`:
+
+```text
+contracts/counter/
+├── Nargo.toml                  # Workspace root
+├── counter_contract/
+│   └── src/main.nr             # Private Counter (EasyPrivateUint)
+└── counter_test/
+    └── src/lib.nr              # Test scaffold
+```
 
 ```bash
 cat contracts/counter/counter_contract/src/main.nr
