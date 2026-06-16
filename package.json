@@ -1,0 +1,17 @@
+{
+  "name": "aztec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "connect": "node connect_to_network.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@aztec/accounts": "4.3.1",
+    "@aztec/aztec.js": "4.3.1",
+    "@aztec/wallets": "4.3.1"
+  }
+}
