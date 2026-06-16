@@ -1,7 +1,7 @@
 {
   "name": "aztec",
   "version": "1.0.0",
-  "description": "",
+  "description": "Connect to an Aztec node and set up an embedded wallet with sandbox test accounts",
   "main": "index.js",
   "scripts": {
     "connect": "node connect_to_network.js",
