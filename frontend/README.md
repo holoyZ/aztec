@@ -1,6 +1,6 @@
 # Frontend
 
-React + Vite UI for the Aztec Counter dApp. Implements [#9](https://github.com/holoyZ/aztec/issues/9).
+React + Vite UI for the Aztec Counter dApp. Implements [#9](https://github.com/holoyZ/aztec/issues/9) and [#10](https://github.com/holoyZ/aztec/issues/10).
 
 ## Structure
 
@@ -12,11 +12,13 @@ frontend/
 ├── postcss.config.js
 └── src/
     ├── main.tsx
-    ├── App.tsx              # Layout shell
-    ├── CounterUI.tsx        # Connect, deploy, increment, read
+    ├── App.tsx              # App shell — layout, header, footer ([#10](https://github.com/holoyZ/aztec/issues/10))
+    ├── CounterUI.tsx        # Full dApp logic: connect, deploy, increment, read
     ├── connect.ts           # Re-exports src/connect.ts
     └── App.css
 ```
+
+Issue [#10](https://github.com/holoyZ/aztec/issues/10) specified a single `App.tsx` with all state and handlers. That logic lives in **`CounterUI.tsx`**; **`App.tsx`** provides the page chrome (same UI, cleaner split from #9).
 
 ## Features
 

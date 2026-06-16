@@ -349,6 +349,23 @@ npm run dev          # or: npm run frontend
 
 See [`frontend/README.md`](frontend/README.md).
 
+## App component ([#10](https://github.com/holoyZ/aztec/issues/10))
+
+The Counter dApp UI implements the full flow from issue #10:
+
+- `connect()` → wallet + test accounts
+- `CounterContract.deploy(wallet, 42n, alice.address)`
+- `increment` / `get_counter` with status, logs, and counter display
+
+| File | Role |
+|------|------|
+| `frontend/src/App.tsx` | Page layout (header, footer) |
+| `frontend/src/CounterUI.tsx` | State, handlers, control panel, activity log |
+
+```bash
+npm run dev   # → http://localhost:5173
+```
+
 ## Useful Resources
 
 - [Aztec Docs](https://docs.aztec.network)
