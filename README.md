@@ -289,6 +289,38 @@ npm run deploy
 
 The Noir contract imports `EasyPrivateUint` correctly in `contracts/counter/counter_contract/src/main.nr`. See [`src/artifacts/counter/README.md`](src/artifacts/counter/README.md).
 
+## Compilation ([#4](https://github.com/holoyZ/aztec/issues/4))
+
+npm scripts for compiling the private Counter and generating TypeScript bindings:
+
+| Script | Description |
+|--------|-------------|
+| `npm run compile` | Compile `contracts/counter/counter_contract` |
+| `npm run codegen` | Generate TS bindings → `src/artifacts/counter/` |
+| `npm run compile:counter` | **Both** (recommended one-command workflow) |
+
+### Quick start
+
+```bash
+# 1. Ensure Aztec sandbox is running
+npx @aztec/aztec-sandbox
+
+# 2. Compile the custom Counter contract
+npm run compile:counter
+```
+
+This will:
+
+1. Compile `contracts/counter/counter_contract` via `aztec compile`
+2. Run `aztec codegen` → output artifacts to `src/artifacts/counter/`
+
+Then deploy or start the UI:
+
+```bash
+npm run deploy
+npm run dev
+```
+
 ## Useful Resources
 
 - [Aztec Docs](https://docs.aztec.network)
