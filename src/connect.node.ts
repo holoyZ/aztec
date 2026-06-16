@@ -1,16 +1,12 @@
 import { createAztecNodeClient, waitForNode } from "@aztec/aztec.js/node";
 import { EmbeddedWallet } from "@aztec/wallets/embedded";
 import { getInitialTestAccountsData } from "@aztec/accounts/testing";
-import type { ConnectResult } from "../../src/connect.types.js";
+import type { ConnectResult } from "./connect.types.js";
 
-export type { ConnectResult };
-
-function getBrowserNodeUrl(): string {
-  return import.meta.env.VITE_AZTEC_NODE_URL ?? "http://localhost:8080";
-}
+export type { ConnectResult } from "./connect.types.js";
 
 export async function connect(): Promise<ConnectResult> {
-  const nodeUrl = getBrowserNodeUrl();
+  const nodeUrl = process.env.AZTEC_NODE_URL ?? "http://localhost:8080";
 
   const node = createAztecNodeClient(nodeUrl);
   await waitForNode(node);
@@ -20,7 +16,7 @@ export async function connect(): Promise<ConnectResult> {
   console.log(`Node version: ${nodeInfo.nodeVersion}`);
 
   const wallet = await EmbeddedWallet.create(node, { ephemeral: true });
-  console.log("EmbeddedWallet ready (browser)");
+  console.log("EmbeddedWallet ready");
 
   let accounts: ConnectResult["accounts"] = [];
 

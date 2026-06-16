@@ -5,7 +5,7 @@
   "type": "module",
   "license": "ISC",
   "scripts": {
-    "connect": "tsx src/connect.ts",
+    "connect": "tsx src/connect.cli.ts",
     "deploy": "tsx scripts/deploy.ts",
     "deploy:token": "tsx scripts/deploy-token.ts",
     "deploy:counter": "tsx scripts/deploy.ts",

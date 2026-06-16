@@ -14,15 +14,17 @@ frontend/
     ├── main.tsx
     ├── App.tsx              # App shell — layout, header, footer ([#10](https://github.com/holoyZ/aztec/issues/10))
     ├── CounterUI.tsx        # Full dApp logic: connect, deploy, increment, read
-    ├── connect.ts           # Re-exports src/connect.ts
+    ├── connect.ts           # Browser connect (VITE_AZTEC_NODE_URL)
     └── App.css
 ```
 
 Issue [#10](https://github.com/holoyZ/aztec/issues/10) specified a single `App.tsx` with all state and handlers. That logic lives in **`CounterUI.tsx`**; **`App.tsx`** provides the page chrome (same UI, cleaner split from #9).
 
+**Browser vs Node:** CLI scripts use `src/connect.node.ts` (`process.env`). The frontend uses `frontend/src/connect.ts` with `import.meta.env.VITE_AZTEC_NODE_URL` and the browser `EmbeddedWallet` entry (no top-level `process` usage).
+
 ## Features
 
-- **Connect** — uses shared `src/connect.ts` via `frontend/src/connect.ts`
+- **Connect** — uses `frontend/src/connect.ts` (browser-safe; `VITE_AZTEC_NODE_URL`, IndexedDB wallet)
 - **Deploy Counter** — private Counter from `contracts/counter/`
 - **Increment & Read** — private contract interactions
 - Status indicator, activity log, persisted contract address ([localStorage](https://github.com/holoyZ/aztec/issues/11))

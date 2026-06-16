@@ -380,7 +380,8 @@ The frontend persists the deployed Counter address in `localStorage` (`counterCo
 
 ### Prerequisites
 
-- Node.js 20+ (Linux, macOS, or WSL — not native Windows)
+- Node.js 20+
+- Linux or macOS
 - Aztec sandbox running locally (`npx @aztec/aztec-sandbox` or Docker)
 
 ### Installation
@@ -431,7 +432,9 @@ bash setup.sh
 aztec/
 ├── setup.sh                    # Bootstrap script (issue #12)
 ├── src/
-│   ├── connect.ts              # Shared Aztec connection logic
+│   ├── connect.ts              # Node connect (re-exports connect.node.ts)
+│   ├── connect.node.ts         # Node-only connection logic
+│   ├── connect.cli.ts          # npm run connect entry
 │   └── artifacts/counter/      # Generated TS bindings (after compile:counter)
 ├── scripts/
 │   ├── deploy.ts               # Custom Counter deployment ([#7](https://github.com/holoyZ/aztec/issues/7))
@@ -465,7 +468,8 @@ npm run dev
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `AZTEC_NODE_URL` | `http://localhost:8080` | URL of the Aztec node |
+| `AZTEC_NODE_URL` | `http://localhost:8080` | Node scripts (`npm run connect`, deploy) |
+| `VITE_AZTEC_NODE_URL` | `http://localhost:8080` | React frontend (`npm run dev`) |
 | `AZTEC_CHAIN_ID` | — | Chain ID for the network (when targeting testnet/mainnet) |
 
 Add more sections as your project grows (e.g., contract examples, frontend integration).
