@@ -1,0 +1,8 @@
+[package]
+name = "counter_contract"
+type = "contract"
+authors = [""]
+compiler_version = ">=1.0.0"
+
+[dependencies]
+aztec = { workspace = true }

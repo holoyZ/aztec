@@ -1,0 +1,40 @@
+{
+  "name": "aztec",
+  "version": "1.0.0",
+  "description": "Aztec Connect Starter — private Counter dApp with Noir, React, and aztec.js",
+  "type": "module",
+  "license": "ISC",
+  "scripts": {
+    "connect": "tsx src/connect.ts",
+    "deploy": "tsx scripts/deploy.ts",
+    "deploy:token": "tsx scripts/deploy-token.ts",
+    "deploy:counter": "tsx scripts/deploy.ts",
+    "compile": "cd contracts/counter && aztec compile",
+    "codegen": "aztec codegen contracts/counter/target/counter_contract-Counter.json -o src/artifacts/counter",
+    "compile:counter": "npm run compile && npm run codegen",
+    "compile:public-counter": "cd contracts/public-counter && aztec compile",
+    "dev": "vite --config frontend/vite.config.ts",
+    "build": "vite build --config frontend/vite.config.ts",
+    "preview": "vite preview --config frontend/vite.config.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@aztec/accounts": "4.3.1",
+    "@aztec/aztec.js": "4.3.1",
+    "@aztec/noir-contracts.js": "4.3.1",
+    "@aztec/wallets": "4.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.5.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}

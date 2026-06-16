@@ -1,0 +1,8 @@
+[package]
+name = "counter_test"
+type = "lib"
+authors = [""]
+compiler_version = ">=1.0.0"
+
+[dependencies]
+counter_contract = { path = "../counter_contract" }
