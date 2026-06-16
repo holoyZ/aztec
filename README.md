@@ -321,6 +321,34 @@ npm run deploy
 npm run dev
 ```
 
+## Frontend / UI ([#9](https://github.com/holoyZ/aztec/issues/9))
+
+React + Vite dashboard at **http://localhost:5173**:
+
+```text
+frontend/
+├── src/App.tsx         # Layout
+├── src/CounterUI.tsx   # Connect · Deploy · Increment · Read
+├── src/connect.ts      # Re-export of src/connect.ts
+└── src/main.tsx
+```
+
+| Feature | Description |
+|---------|-------------|
+| Connect | Aztec node + EmbeddedWallet + test accounts |
+| Deploy Counter | Private Counter from `contracts/counter/` |
+| Increment / Read | Private interactions + live counter display |
+| UI | Tailwind CSS, status badge, activity log, localStorage address |
+
+```bash
+npx @aztec/aztec-sandbox
+npm install
+npm run compile:counter
+npm run dev          # or: npm run frontend
+```
+
+See [`frontend/README.md`](frontend/README.md).
+
 ## Useful Resources
 
 - [Aztec Docs](https://docs.aztec.network)
@@ -372,6 +400,7 @@ bash setup.sh
 | `npm run deploy:counter` | Same as `deploy` |
 | `npm run deploy:token` | Deploy official TokenContract ([#5](https://github.com/holoyZ/aztec/issues/5)) |
 | `npm run dev` | Start React + Vite frontend at http://localhost:5173 |
+| `npm run frontend` | Alias for `dev` ([#9](https://github.com/holoyZ/aztec/issues/9)) |
 | `npm run build` | Build frontend for production |
 | `npm test` | Run tests (when added) |
 
@@ -389,8 +418,11 @@ aztec/
 ├── contracts/                  # Noir contracts ([#6](https://github.com/holoyZ/aztec/issues/6))
 │   ├── counter/                # Private Counter workspace
 │   └── public-counter/         # Public learning example
-├── frontend/                   # React + Vite UI
-│   └── src/App.tsx
+├── frontend/                   # React + Vite UI ([#9](https://github.com/holoyZ/aztec/issues/9))
+│   └── src/
+│       ├── App.tsx
+│       ├── CounterUI.tsx
+│       └── connect.ts
 ├── connect_to_network.js       # Legacy connect entry (re-exports connect.ts)
 ├── package.json
 └── README.md
