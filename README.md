@@ -366,6 +366,10 @@ The Counter dApp UI implements the full flow from issue #10:
 npm run dev   # → http://localhost:5173
 ```
 
+## localStorage ([#11](https://github.com/holoyZ/aztec/issues/11))
+
+The frontend persists the deployed Counter address in `localStorage` (`counterContractAddress`). On reload, the address is restored and shown as **Contract Address (persisted)**. Full contract re-attachment after refresh is not implemented yet — connect and deploy again to interact.
+
 ## Useful Resources
 
 - [Aztec Docs](https://docs.aztec.network)

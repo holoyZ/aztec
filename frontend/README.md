@@ -25,7 +25,7 @@ Issue [#10](https://github.com/holoyZ/aztec/issues/10) specified a single `App.t
 - **Connect** — uses shared `src/connect.ts` via `frontend/src/connect.ts`
 - **Deploy Counter** — private Counter from `contracts/counter/`
 - **Increment & Read** — private contract interactions
-- Status indicator, activity log, persisted contract address (localStorage)
+- Status indicator, activity log, persisted contract address ([localStorage](https://github.com/holoyZ/aztec/issues/11))
 - Responsive layout with Tailwind CSS
 
 ## Run
@@ -37,3 +37,15 @@ npm run dev                 # http://localhost:5173
 ```
 
 Aliases: `npm run frontend` (same as `dev`).
+
+## localStorage persistence ([#11](https://github.com/holoyZ/aztec/issues/11))
+
+Contract address is saved under `counterContractAddress`:
+
+| Event | Behavior |
+|-------|----------|
+| **Deploy** | `localStorage.setItem('counterContractAddress', addr)` |
+| **Page load** | Restores address + logs `Loaded saved contract address: …` |
+| **UI** | Label shows **Contract Address (persisted)** |
+
+The address survives refresh until browser storage is cleared. **Note:** increment/read after refresh still require a new connect + deploy (or future re-attach via `CounterContract.at` + wallet).
